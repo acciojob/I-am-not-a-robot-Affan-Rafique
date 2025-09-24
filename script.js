@@ -26,12 +26,14 @@ function loadImages() {
   temp.push(temp[Math.floor(Math.random() * temp.length)]); // add duplicate
   temp.sort(() => Math.random() - 0.5); // shuffle
 
-  temp.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.onclick = () => selectImg(img);
-    container.appendChild(img);
-  });
+  temp.forEach((src, index) => {
+  const img = document.createElement('img');
+  img.src = src;
+  img.className = 'img-1 img' + (index + 1); // adds img1, img2, etc.
+  img.onclick = () => selectImg(img);
+  container.appendChild(img);
+});
+
 }
 
 // Handle image selection
